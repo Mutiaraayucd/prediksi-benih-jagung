@@ -26,4 +26,5 @@ Route::get('/prediksi_benih',[App\Http\Controllers\PrediksiController::class, 'b
 Route::get('/riwayat_prediksi',[App\Http\Controllers\PrediksiController::class, 'riwayat'])->name('riwayat')->middleware('auth');
 
 
+
 Route::view('/login', 'auth.login')->name('login'); 

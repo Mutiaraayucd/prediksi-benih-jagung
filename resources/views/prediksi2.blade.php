@@ -1,29 +1,34 @@
 @extends('main')
 @section('main')
 <div class="mode-selector">
-            <div class="mode-buttons">
-                <div class="mode-button active" id="defaultModeBtn" onclick="switchMode('default')">
-                    <div class="mode-button-title">Mode Default</div>
-                    <div class="mode-button-subtitle">Sebelum Panen (MC Rata-rata)</div>
-                </div>
-                <div class="mode-button manual" id="manualModeBtn" onclick="switchMode('manual')">
-                    <div class="mode-button-title">Mode Manual</div>
-                    <div class="mode-button-subtitle">Setelah Panen (MC Terukur)</div>
-                </div>
-            </div>
 
-            <div class="mode-info" id="modeInfo">
-                <div class="mode-info-icon">
-                    <i class="fas fa-info-circle"></i>
-                </div>
-                <div>
-                    <div class="mode-info-title">Prediksi Pra-Panen</div>
-                    <div class="mode-info-text">
-                        Gunakan mode ini untuk perencanaan sebelum panen. Sistem akan menggunakan MC rata-rata default dari varietas yang dipilih.
-                    </div>
+    <div class="mode-row">
+        <!-- MODE DEFAULT -->
+        <div class="mode-box active" id="defaultModeBtn">
+            <div class="mode-box-header">
+                <i class="fas fa-sliders-h"></i>
+                <span>Mode Default</span>
+            </div>
+            <div class="mode-box-subtitle">
+                Sebelum Panen (MC Rata-rata)
+            </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="mode-info">
+            <i class="fas fa-info-circle"></i>
+            <div>
+                <div class="mode-info-title">Prediksi Pra-Panen</div>
+                <div class="mode-info-text">
+                    Digunakan untuk perencanaan sebelum panen dengan MC rata-rata berdasarkan varietas.
                 </div>
             </div>
         </div>
+    </div>
+
+</div>
+
+
         
         <section class="form-container">
             <div class="card-header">
@@ -40,13 +45,12 @@
                         </label>
                         <select class="form-select" id="variety" onchange="updateVarietyInfo()">
                             <option value="">Pilih Varietas</option>
-                            <option value="Hibrida 1" data-mc="24.5">Hibrida 1</option>
-                            <option value="Hibrida 2" data-mc="25.0">Hibrida 2</option>
-                            <option value="Hibrida 3" data-mc="23.8">Hibrida 3</option>
-                            <option value="Pioneer P27" data-mc="25.5">Pioneer P27</option>
-                            <option value="Bisi 18" data-mc="24.0">Bisi 18</option>
-                            <option value="NK 212" data-mc="26.0">NK 212</option>
+                            <option value="SAGE 1B" data-mc="27.9">SAGE 1B</option>
+                            <option value="SAGE 2" data-mc="27.9">SAGE 2</option>
+                            <option value="SAGE 5" data-mc="27.9">SAGE 5</option>
+                            <option value="SAGE 7" data-mc="27.9">SAGE 7</option>
                         </select>
+
                         <div class="variety-note" id="varietyNote" style="display: none;"></div>
                         <div class="error-message" id="varietyError">Harap pilih varietas jagung</div>
                     </div>
@@ -198,12 +202,10 @@
 <script>
       let currentMode = 'default';
         const varietyData = {
-            'Hibrida 1': { mcDefault: 24.5 },
-            'Hibrida 2': { mcDefault: 25.0 },
-            'Hibrida 3': { mcDefault: 23.8 },
-            'Pioneer P27': { mcDefault: 25.5 },
-            'Bisi 18': { mcDefault: 24.0 },
-            'NK 212': { mcDefault: 26.0 }
+            'SAGE 1B': { mcDefault: 27.5 },
+            'SAGE 2':  { mcDefault: 27.8 },
+            'SAGE 5':  { mcDefault: 27.9 },
+            'SAGE 7':  { mcDefault: 28.1 }
         };
 
         // DOM Elements
